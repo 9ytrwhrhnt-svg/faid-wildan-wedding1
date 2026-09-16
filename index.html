@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fayd & Woldan — Wedding Invitation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap');
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#070707;color:#f4ead8;font-family:"Noto Naskh Arabic",serif}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 42%,#302719 0,#15110b 25%,#070707 68%)}
+.hero:before{content:"";position:absolute;inset:18px;border:1px solid #b89450;opacity:.55}
+.orn{color:#c9a35a;font-size:25px;letter-spacing:14px;direction:ltr}
+.small{font:500 14px "Cormorant Garamond";letter-spacing:7px;color:#c9a35a;direction:ltr;margin:18px 0}
+.names{font:500 clamp(55px,13vw,120px)/.9 "Cormorant Garamond";direction:ltr;letter-spacing:2px;margin:18px 0}
+.names span{color:#c9a35a;font-size:.55em;margin:0 8px}.arabic{font-size:21px;color:#dfd2bb}
+.open{margin-top:35px;border:1px solid #c9a35a;background:transparent;color:#e9d39d;padding:13px 32px;font-family:inherit;font-size:16px;cursor:pointer}
+.scroll{position:absolute;bottom:20px;color:#9e8c6d;font-size:12px;letter-spacing:2px}
+.section{padding:85px 22px;text-align:center;max-width:850px;margin:auto}
+.line{height:1px;background:linear-gradient(90deg,transparent,#c9a35a,transparent);margin:22px 0 35px}
+.date{font:500 38px "Cormorant Garamond";direction:ltr;letter-spacing:6px;color:#e4c984}
+.place{font-size:21px;margin-top:10px}.time{font:20px "Cormorant Garamond";direction:ltr;color:#c9a35a}
+.invite{font-size:20px;line-height:2.1;color:#ddd2bf}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:38px}
+.box{border:1px solid rgba(201,163,90,.38);padding:18px 4px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(201,163,90,.025))}
+.num{font:500 44px "Cormorant Garamond";direction:ltr;color:#e5c878;display:block}.lbl{font-size:13px;color:#bcae96}
+.map{display:inline-block;margin-top:30px;padding:11px 25px;border:1px solid #c9a35a;color:#e6d09b;text-decoration:none}
+.footer{padding:70px 20px;text-align:center;background:#0c0c0c}.forever{font:500 31px "Cormorant Garamond";direction:ltr;color:#d9bc79}
+@media(max-width:500px){.count{gap:5px}.num{font-size:31px}.arabic{font-size:18px}.invite{font-size:18px}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div>
+<div class="orn">✦ ✧ ✦</div>
+<div class="small">WEDDING INVITATION</div>
+<div class="names">FAYD <span>&</span> WOLDAN</div>
+<div class="arabic">بكل الحب، ندعوكم لمشاركتنا بداية فصلٍ جديد من حكايتنا</div>
+<button class="open" onclick="document.getElementById('details').scrollIntoView()">OPEN INVITATION</button>
+<div class="scroll">SCROLL TO DISCOVER</div>
+</div>
+</section>
+
+<section id="details" class="section">
+<div class="small">THE DATE</div>
+<div class="date">09 · 10 · 2026</div>
+<div class="place">مدينة حمورابي — VIP C</div>
+<div class="time">6:00 PM — 9:00 PM</div>
+<div class="line"></div>
+<p class="invite">يتشرّف <b>فيض & ولدان</b> بدعوتكم لمشاركتهما فرحة زفافهما،<br>فوجودكم بيننا هو أجمل ما يكمّل فرحتنا 🤍</p>
+
+<div class="small">COUNTDOWN</div>
+<div class="count">
+<div class="box"><span class="num" id="d">0</span><span class="lbl">يوم</span></div>
+<div class="box"><span class="num" id="h">00</span><span class="lbl">ساعة</span></div>
+<div class="box"><span class="num" id="m">00</span><span class="lbl">دقيقة</span></div>
+<div class="box"><span class="num" id="s">00</span><span class="lbl">ثانية</span></div>
+</div>
+<a class="map" href="https://www.google.com/maps/search/?api=1&query=مدينة+حمورابي+VIP+C" target="_blank">📍 الموقع</a>
+</section>
+
+<footer class="footer">
+<div class="orn">✦</div>
+<div class="forever">A new chapter begins…</div>
+<p>Fayd & Woldan</p>
+</footer>
+
+<script>
+const target=new Date("2026-10-09T18:00:00+03:00").getTime();
+function tick(){
+ let x=Math.max(0,target-Date.now()),t=Math.floor(x/1000);
+ d.textContent=Math.floor(t/86400);
+ h.textContent=String(Math.floor(t%86400/3600)).padStart(2,"0");
+ m.textContent=String(Math.floor(t%3600/60)).padStart(2,"0");
+ s.textContent=String(t%60).padStart(2,"0");
+}
+tick();setInterval(tick,1000);
+</script>
+</body></html>
